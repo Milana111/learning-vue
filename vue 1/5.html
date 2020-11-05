@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://unpkg.com/vue"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    
+<div id="app">
+ <h1> {{ title }} </h1>  
+ <button @click='showContent = !showContent'>Get Content</button>
+<div v-iif='showContent'>
+ <p>users:</p>
+ <ul>
+     <li v-for='(user, index) user in estrs' :key='user'>
+<p> {{index}} - {{user.name}} </p>
+<span>{{user.email}} - {{user.age}}</span>
+</li>
+     
+ </ul>
+</div>
+</div>
+
+
+ <script>
+     var app = new Vue({
+         el:'#app',
+         data:{
+            title: 'DATA',
+            showContent: false,
+            //user: { 
+            //name:'Jake',
+            //email: 'info@tocode.ru'
+            //},
+            users: [
+            {name: 'Jack', email: 'info@tocode.ru', age: 22},
+            {name: 'ivan', email: 'ivan@tocode.ru', age: 25},
+            {name: 'alex', email: 'alex@tocode.ru', age: 24},
+            ],
+         },
+            methods: {
+                getContent(){
+                this.showContent = !this.showContent,
+               console.log(this.user)
+               }
+            }
+        })
+ </script>
+</body>
+</html>
