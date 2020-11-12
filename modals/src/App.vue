@@ -28,14 +28,17 @@
         <form @submit.prevent="submitSecondForm">
           <label>Name:</label>
           <input type="text" v-model="modalSecond.name">
-          <label>Name:</label>
+          <label>Email:</label>
           <input type="text" v-model="modalSecond.email">
         <!--<p> text </p>-->
         <button class="btn btnPrimary" > Submit </button>
         </form>
       </div>
-      
-      </modals>
+ </modals>
+
+      <button class="btn btnPrimary" @click="modalValidate = !modalValidate"> Show modal with from + validate</button>
+      <modalValidate v-show="modalValidate" @close='modalValidate = false'/>
+    
     </div>
   </section>
  
@@ -44,18 +47,22 @@
 </template>
 
 <script>
-import modals from '@/components/Modal.vue'
+import modals from '@/components/UI/Modal.vue'
+import modalValidate from '@/components/ModalValidate.vue'
+
 export default {
-components:{ modals },
+components:{ modals, modalValidate },
 data(){
   return{
     modalFirst: false,
     modalSecond: {
-      show: false,
-      name:'',
-      email:''
-    }
+    show: false,
+    name:'',
+    email:''
+    },
+    modalValidate : false
   }
+    
 
 },
 methods:{
