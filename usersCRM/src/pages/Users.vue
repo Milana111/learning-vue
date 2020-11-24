@@ -9,7 +9,7 @@
     <!--head-->
       <thead>
         <tr>
-          <th @click="sort('name')">name &#8595;</th>
+          <th @click="sort('name')">Name &#8595;</th>
           <th @click="sort('age')">Age &#8595;</th>
           <th @click="sort('gender')">Gender &#8595;</th>
         </tr>
@@ -19,8 +19,8 @@
       <tbody>
         <tr v-for="user in usersSort" :key="user.id">
           <td> 
-            <img :src="user.img" alt="user.nsme">
-            <span>{{ user.nsme }}</span>
+            <img :src="user.img" :alt="user.name">
+            <span>{{ user.name }}</span>
             </td>
           <td> {{ user.age }} </td>
           <td> {{ user.gender }} </td>
@@ -92,18 +92,16 @@ export default {
         return 0
       
       }).filter((row, index) => {
-        let statr = (this.page.current-1)*this.page.length 
+        let start = (this.page.current-1)*this.page.length 
         let end = this.page.current * this.page.length
         if (index >= start && index < end) return true
-          
         })
       }
   },
   methods: {
     sort (e) {
       if (e === this.currentSort) {
-        this.currentSortDir= this.currentSortDir === 'asc' ? 'desc' : 'asc'
-        
+        this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc'        
       }
       this.currentSort = e
     },
