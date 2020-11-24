@@ -20,7 +20,7 @@
           <!-- content -->
           <div class="product-content">
             <h1 class="title">{{product.title}}</h1>
-            <p>{{product.descr}}</p>
+            <p>{{product.description}}</p>
           </div>
         </div>
       </div>
